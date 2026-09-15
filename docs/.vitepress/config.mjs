@@ -6,65 +6,11 @@ const sidebar = [
     link: '/docs'
   },
   {
-    text: '技术架构',
-    collapsed: false,
-    items: [
-      { text: '系统设计概览', link: '/architecture/system-design' },
-      { text: '引擎架构', link: '/architecture/engine' },
-      { text: '服务端架构', link: '/architecture/backend' },
-      { text: '数据流', link: '/architecture/data-flow' },
-      { text: '运行时', link: '/architecture/runtime' },
-      { text: '前端架构', link: '/architecture/frontend' },
-      { text: '模板生成器', link: '/architecture/template-generator' },
-      { text: '项目管理', link: '/architecture/project-manager' },
-    ]
-  },
-  {
-    text: 'Runtime 能力矩阵',
-    link: '/runtime-capability-matrix'
-  },
-  {
-    text: '部署与运维',
+    text: '快速上手',
     collapsed: false,
     items: [
       { text: '安装与部署', link: '/deployment/install' },
       { text: '依赖清单', link: '/deployment/dependencies' },
-    ]
-  },
-  {
-    text: '接口与 SDK',
-    collapsed: false,
-    items: [
-      { text: 'REST API', link: '/api/README' },
-      { text: '插件 SDK', link: '/plugin-sdk/README' },
-      { text: '插件系统', link: '/plugin-sdk/plugin-system' },
-      { text: '工作流 SDK', link: '/workflow-sdk/README' },
-    ]
-  },
-  {
-    text: '节点库',
-    collapsed: false,
-    items: [
-      { text: '节点总览', link: '/nodes/README' },
-      { text: 'yolo', link: '/nodes/yolo' },
-      { text: 'lstm', link: '/nodes/lstm' },
-      { text: 'dataset', link: '/nodes/dataset' },
-      { text: 'object-detection', link: '/nodes/object-detection' },
-      { text: 'image-classification', link: '/nodes/image-classification' },
-      { text: 'semantic-segmentation', link: '/nodes/semantic-segmentation' },
-      { text: 'model-evaluation', link: '/nodes/model-evaluation' },
-      { text: 'data-preprocessing', link: '/nodes/data-preprocessing' },
-      { text: 'logic-control', link: '/nodes/logic-control' },
-      { text: 'python-script', link: '/nodes/python-script' },
-      { text: 'matlab', link: '/nodes/matlab' },
-      { text: 'stm32', link: '/nodes/stm32' },
-      { text: 'ansys', link: '/nodes/ansys' },
-    ]
-  },
-  {
-    text: 'UI 与设计',
-    items: [
-      { text: '设计系统', link: '/UI/design-system' },
     ]
   },
 ]

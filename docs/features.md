@@ -171,8 +171,6 @@ EngStudio 的服务端是**单进程 Node 服务**（Express + SQLite），可�
 | Tool | 8 | Terminal、HTTPRequest、FileCopy、Archive |
 | Python | 5 | PythonScript、VirtualEnv、PackageInstall |
 
-详见 [节点文档](/nodes/README)。
-
 ---
 
 ## 插件体系

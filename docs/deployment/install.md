@@ -139,6 +139,5 @@ rm -rf "$ENGSTUDIO_DATA_DIR"     # 默认 packages/server/data，含数据库与
 
 ## 6. 相关文档
 
-- `Docs/api/README.md`：完整接口清单
 - `README.md`：项目总览与开发命令
-- `Docs/planning/next-steps.md`：后续路线与验收状态
+- 有问题或建议，欢迎到 [GitHub Discussions](https://github.com/wyyy520/ES/discussions) 交流
