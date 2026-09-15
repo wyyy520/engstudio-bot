@@ -36,7 +36,7 @@ pnpm -r run build
 cd packages/server && pnpm dev   # 启动后端（默认 3456 端口）
 ```
 
-完整的安装与部署手册见 [安装与部署文档](https://github.com/wyyy520/ES/blob/main/Docs/deployment/install.md)。
+完整的安装与部署说明见 [README](https://github.com/wyyy520/ES/blob/main/README.md)。
 
 ## 历史版本
 
