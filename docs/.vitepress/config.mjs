@@ -6,10 +6,9 @@ const sidebar = [
     link: '/docs'
   },
   {
-    text: '架构设计',
+    text: '技术架构',
     collapsed: false,
     items: [
-      { text: '系统设计说明书（全景）', link: '/architecture/engstudio' },
       { text: '系统设计概览', link: '/architecture/system-design' },
       { text: '引擎架构', link: '/architecture/engine' },
       { text: '服务端架构', link: '/architecture/backend' },
@@ -63,24 +62,9 @@ const sidebar = [
     ]
   },
   {
-    text: '模板库',
-    items: [
-      { text: '模板质量报告', link: '/templates/quality-report' },
-    ]
-  },
-  {
     text: 'UI 与设计',
     items: [
       { text: '设计系统', link: '/UI/design-system' },
-    ]
-  },
-  {
-    text: '规划与价值',
-    collapsed: false,
-    items: [
-      { text: '交付与验收计划', link: '/planning/project-delivery-plan' },
-      { text: '下一步行动清单', link: '/planning/next-steps' },
-      { text: '商业价值分析', link: '/planning/business-value' },
     ]
   },
 ]
