@@ -14,6 +14,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '功能', link: '/features' },
+      { text: '使用指南', link: '/guide' },
       { text: '下载', link: '/download' },
       { text: 'GitHub', link: 'https://github.com/wyyy520/ES' }
     ],
