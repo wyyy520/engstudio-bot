@@ -21,30 +21,40 @@ sudo apt install ./engstudio-1.0.2-linux-x86_64.deb
 
 EngStudio 由「**桌面客户端** + **本地后端服务**」两部分组成，两者必须同时运行。
 
-客户端启动后，进入 **Dashboard（仪表盘）** 页面，页面顶部会显示**后端启动命令**——这是你在自己机器上启动服务所需的完整命令：
+客户端启动后，进入 **Dashboard（仪表盘）** 页面，页面顶部会显示**后端启动命令**，并提供两种启动方案（A / B 可切换）：
 
+### 方案 A：原地启动（推荐，目录可写时可用）
+
+在软件安装目录直接启动，无需额外操作：
+
+```bash
+cd ~/.engstudio/server && ENGSTUDIO_DATA_DIR=~/.engstudio/data npm install && node dist/index.js
 ```
-cd /usr/share/engstudio/server && npm install && node dist/index.js
+
+### 方案 B：用户目录副本（系统目录不可写时自动选择）
+
+deb 把后端装到 `/usr/share/engstudio/server`（root 拥有），普通用户无法在那里安装依赖。此时 Dashboard 会自动切换为**方案 B**，使用 `~/.engstudio/server` 的用户目录副本。
+
+**首次使用（必须执行，一次性）**——把 Dashboard 复制的命令粘到终端执行，会先复制 + 授权 + 装依赖：
+
+```bash
+mkdir -p ~/.engstudio && sudo cp -r /usr/share/engstudio/server ~/.engstudio/server && sudo chown -R $USER ~/.engstudio/server && cd ~/.engstudio/server && ENGSTUDIO_DATA_DIR=~/.engstudio/data npm install && node dist/index.js
 ```
 
-### 首次使用（必须执行）
+**之后每次使用**（依赖已装好，更快）：
 
-把它复制到**你自己的终端窗口**里回车执行：
+```bash
+cd ~/.engstudio/server && ENGSTUDIO_DATA_DIR=~/.engstudio/data node dist/index.js
+```
 
-1. `npm install` 会先安装依赖（**只需要在第一次运行**，约 1-3 分钟，请等待完成）
-2. 依赖装好后会自动执行 `node dist/index.js` 启动服务
-3. 看到类似输出即表示后端已就绪：
+### 两种方案的共同点
+
+- 所有启动命令都通过 `ENGSTUDIO_DATA_DIR` 指向**同一个数据目录** `~/.engstudio/data`，无论用哪种方式启动，你的对话记录、供应商配置、项目都**互通**，不会出现"换个启动方式数据就消失"。
+- `npm install` 只需**第一次**运行（约 1-3 分钟，请等待完成）；之后直接执行 `node dist/index.js` 即可。
+- 看到类似输出即表示后端已就绪：
 
 ```
 EngStudio server listening on http://localhost:3456
-```
-
-### 之后每次使用
-
-后端已安装过依赖，之后只需运行一条命令即可（更快）：
-
-```
-cd /usr/share/engstudio/server && node dist/index.js
 ```
 
 ### 如何判断后端已就绪
@@ -74,6 +84,9 @@ cd /usr/share/engstudio/server && node dist/index.js
 
 **问：后端一直显示未连接？**
 答：确认启动命令已在终端执行且无报错，稍等 1-2 秒刷新再试，或直接访问 `http://localhost:3456/api/health` 判断。
+
+**问：之前问 AI 的记录怎么不见了？**
+答：对话 / 供应商 / 项目保存在 `~/.engstudio/data/engstudio.db`。如果你此前用另一个目录（如旧版本、开发目录）启动过后端，数据会留在那个目录的库里。为免混淆，请始终用 Dashboard 给出的启动命令，并确认命令里的 `ENGSTUDIO_DATA_DIR` 指向 `~/.engstudio/data`。
 
 **问：会联网上传我的数据吗？**
 答：不会。后端服务完全运行在本机，数据不出域，无需注册账号。
