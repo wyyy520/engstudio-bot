@@ -1,6 +1,6 @@
 # 下载
 
-## 最新版本：EngStudio v1.0.2
+## 最新版本：EngStudio 1.0.3
 
 安装前请先核对校验和：
 
@@ -12,13 +12,13 @@ sha256sum -c SHA256SUMS.txt
 
 | 平台 | 安装包 | 状态 |
 |---|---|---|
-| Linux (x86_64) | [engstudio-1.0.2-linux-x86_64.deb](https://github.com/wyyy520/ES/releases/download/v1.0.2/engstudio-1.0.2-linux-x86_64.deb) | ✅ 已发布 |
+| Linux (x86_64) | [engstudio-1.0.3-linux-x86_64.deb](https://github.com/wyyy520/ES/releases/download/v1.0.3/engstudio-1.0.3-linux-x86_64.deb) | ✅ 已发布 |
 | Windows (AMD64) | — | 🚧 计划在 v1.1.0 提供 |
 | macOS | — | 🚧 计划中 |
 
 ## 校验和
 
-[SHA256SUMS.txt](https://github.com/wyyy520/ES/releases/download/v1.0.2/SHA256SUMS.txt)
+[SHA256SUMS.txt](https://github.com/wyyy520/ES/releases/download/v1.0.3/SHA256SUMS.txt)
 
 ## 安装要求
 

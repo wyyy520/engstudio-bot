@@ -9,7 +9,7 @@ hero:
     alt: EngStudio 主界面
   actions:
     - theme: brand
-      text: 立即下载 v1.0.2
+      text: 立即下载 1.0.3
       link: /download
     - theme: alt
       text: 了解功能
