@@ -90,10 +90,10 @@ let rafStarted = false
 
 const gallery = [
   { src: '/screenshot.png', caption: '工作台 · 首页概览' },
-  { src: '/eng_shot_dashboard.png', caption: '工作台 · 工程与状态' },
-  { src: '/eng_shot_workflow_hover.png', caption: '工作流编辑器 · PX4 巡航悬停' },
+  { src: '/eng_shot_dashboard.png', caption: '日志中心' },
+  { src: '/eng_shot_workflow_hover.png', caption: '工作台' },
   { src: '/eng_shot_compiler.png', caption: '编译器 · 执行计划与生成' },
-  { src: '/eng_shot_aichat.png', caption: 'AI 对话 · 工程模式' },
+  { src: '/eng_shot_aichat.png', caption: 'AI 对话 · 意图模式' },
 ]
 
 function openLightbox(g) {
