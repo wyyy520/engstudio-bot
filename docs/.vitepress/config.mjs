@@ -16,6 +16,7 @@ export default defineConfig({
       { text: '功能', link: '/features' },
       { text: '使用指南', link: '/guide' },
       { text: '下载', link: '/download' },
+      { text: '更新记录', link: '/releases' },
       { text: 'GitHub', link: 'https://github.com/wyyy520/ES' }
     ],
     socialLinks: [
