@@ -89,10 +89,10 @@ const lightbox = ref(null)
 let rafStarted = false
 
 const gallery = [
-  { src: '/screenshot.png', caption: '工作台 · 首页概览' },
+  { src: '/screenshot.png', caption: '仪表盘' },
   { src: '/eng_shot_dashboard.png', caption: '日志中心' },
   { src: '/eng_shot_workflow_hover.png', caption: '工作台' },
-  { src: '/eng_shot_compiler.png', caption: '编译器 · 执行计划与生成' },
+  { src: '/eng_shot_compiler.png', caption: '步骤预览' },
   { src: '/eng_shot_aichat.png', caption: 'AI 对话 · 意图模式' },
 ]
 
