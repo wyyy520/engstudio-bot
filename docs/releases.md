@@ -45,7 +45,7 @@
 - 后端启动提供「原地 / 用户目录」切换，系统目录不可写时自动切到 `~/.engstudio` 副本。
 - `--screenshot` 模式，用于发布截图与网站素材自动生成。
 
-另附：[更新记录页](https://engstudio.bbroot.com/releases.html)；[完整代码变更](https://github.com/wyyy520/ES/releases/tag/v1.0.3)。
+另附：[更新记录页](https://engstudio.bot.cd/releases.html)；[完整代码变更](https://github.com/wyyy520/ES/releases/tag/v1.0.3)。
 
 ---
 
