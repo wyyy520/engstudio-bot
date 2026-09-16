@@ -85,7 +85,20 @@ const faqs = [
 const activeDomain = ref(domains[0].key)
 const activeFaq = ref(0)
 const statValues = ref(stats.map(() => 0))
+const lightbox = ref(null)
 let rafStarted = false
+
+const gallery = [
+  { src: '/screenshot.png', caption: '工作台 · 首页概览' },
+  { src: '/eng_shot_dashboard.png', caption: '工作台 · 工程与状态' },
+  { src: '/eng_shot_workflow_hover.png', caption: '工作流编辑器 · PX4 巡航悬停' },
+  { src: '/eng_shot_compiler.png', caption: '编译器 · 执行计划与生成' },
+  { src: '/eng_shot_aichat.png', caption: 'AI 对话 · 工程模式' },
+]
+
+function openLightbox(g) {
+  lightbox.value = g
+}
 
 function domainByKey(key) {
   return domains.find((d) => d.key === key)
@@ -162,6 +175,27 @@ onMounted(() => {
         <div class="stat-label">{{ s.label }}</div>
       </div>
     </section>
+
+    <!-- 界面预览画廊（点击放大） -->
+    <section class="gallery-section">
+      <h2 class="section-title">界面预览</h2>
+      <p class="section-sub">点击任意截图即可放大查看</p>
+      <div class="gallery-grid">
+        <figure v-for="g in gallery" :key="g.src" class="gallery-item" @click="openLightbox(g)">
+          <img :src="g.src" :alt="g.caption" loading="lazy" />
+          <figcaption>{{ g.caption }}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 放大遮罩 -->
+    <div v-if="lightbox" class="lightbox" @click="lightbox = null">
+      <figure>
+        <img :src="lightbox.src" :alt="lightbox.caption" />
+        <figcaption>{{ lightbox.caption }}</figcaption>
+      </figure>
+      <span class="lightbox-close">✕ 关闭</span>
+    </div>
 
     <!-- FAQ 手风琴 -->
     <section class="faq-section">
@@ -305,6 +339,97 @@ onMounted(() => {
   margin-top: 0.3rem;
   font-size: 0.9rem;
   opacity: 0.75;
+}
+
+/* 界面预览画廊 */
+.gallery-section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1.5rem 0 2.5rem;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.gallery-item {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--vp-c-bg-soft);
+  cursor: zoom-in;
+  margin: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.gallery-item figcaption {
+  padding: 0.55rem 0.8rem;
+  font-size: 0.88rem;
+  opacity: 0.85;
+  text-align: center;
+}
+
+/* 放大遮罩 */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  animation: lightboxIn 0.22s ease;
+}
+@keyframes lightboxIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.lightbox figure {
+  margin: 0;
+  max-width: 92vw;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.lightbox img {
+  max-width: 92vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55);
+  object-fit: contain;
+}
+.lightbox figcaption {
+  color: #fff;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+.lightbox-close {
+  position: fixed;
+  top: 1.2rem;
+  right: 1.4rem;
+  color: #fff;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.14);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  opacity: 0.85;
+}
+
+@media (max-width: 760px) {
+  .gallery-grid { grid-template-columns: 1fr; }
 }
 
 /* FAQ */
