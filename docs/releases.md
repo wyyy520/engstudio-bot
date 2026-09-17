@@ -4,12 +4,47 @@
 
 <div class="version-nav">
 
+- [v1.0.4](#v104) — 模板全量原生化（去 Handlebars）
 - [v1.0.3](#v103) — 生成/导出链路修复
 - [v1.0.2](#v102) — 一键后端 + AI 工程
 - [v1.0.1](#v101) — RAG 语义检索
 - [v1.0.0](#v100) — 首个正式版
 
 </div>
+
+---
+
+## v1.0.4 {#v104}
+
+**发布日期**：2026-09-17 · [GitHub Release](https://github.com/wyyy520/ES/releases/tag/v1.0.4)
+
+> 核心目标：模板引擎去 Handlebars 化 —— 736 个模板全部改为原生源文件，参数在运行时注入，彻底消除 `{{ }}` 占位符。
+
+### ✨ 变更
+
+1. **模板全量原生化**
+   - 移除全部 `.tpl` 文件，736 个模板改为原生源文件：Python 读 `params.json`、MATLAB `jsondecode`、ROS launch 运行时传参，STM32 由引擎生成 `config.h`，C++/CMake/配置文件烘焙默认值。
+   - 模板源码不再含真实 `{{ }}`（仅保留 GitHub Actions 的 `${{ }}`），转换后均可被原生工具链解析/编译。
+
+2. **RAG 语义检索升级**
+   - 索引 `INDEX_VERSION=2`，索引文本前置模板 id，修复自查询召回；重建 736 模板向量索引。
+
+3. **模板目录完整性测试**
+   - 新增校验：注册数量、id 唯一、无 `.tpl` 引用、声明文件存在性。
+
+### 🐛 修复的问题
+
+1. **12 个 ANSYS 模板 `main.py` 语法错误**：MAPDL 空参数与方法链拼写修正，模板可正常解析。
+2. **`ros2_nav2_dwb` 非法的 DWB 参数 YAML**：改为合法的 nav2 DWB 点式参数与 critics 列表。
+3. **发布流程修复**：排除 `_CPack_Packages` 目录，避免 `gh release` 把目录当资产导致发布失败。
+4. **`.gitignore`**：补充 `__pycache__/`、`*.py[cod]`。
+
+### 📦 安装包
+
+- Linux：`engstudio-1.0.4-linux-x86_64.deb`、`engstudio-1.0.4-Linux-x86_64.tar.gz`
+- Windows：`engstudio-1.0.4-Windows-AMD64.exe`、`engstudio-1.0.4-Windows-AMD64.zip`（新增）
+
+另附：[更新记录页](https://engstudio.bot.cd/releases.html)；[完整代码变更](https://github.com/wyyy520/ES/releases/tag/v1.0.4)。
 
 ---
 

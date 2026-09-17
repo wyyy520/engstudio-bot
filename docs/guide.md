@@ -10,7 +10,7 @@
 
 ```bash
 # Linux / Debian / Ubuntu 系
-sudo apt install ./engstudio-1.0.3-linux-x86_64.deb
+sudo apt install ./engstudio-1.0.4-linux-x86_64.deb
 ```
 
 安装完成后，在应用菜单或终端执行 `engstudio` 启动客户端。
