@@ -1,6 +1,6 @@
 # 下载
 
-## 最新版本：EngStudio 1.0.4
+## 最新版本：EngStudio 1.0.5
 
 安装前请先核对校验和：
 
@@ -12,15 +12,15 @@ sha256sum -c SHA256SUMS.txt
 
 | 平台 | 安装包 | 状态 |
 |---|---|---|
-| Linux (x86_64) | [engstudio-1.0.4-linux-x86_64.deb](https://github.com/wyyy520/ES/releases/download/v1.0.4/engstudio-1.0.4-linux-x86_64.deb) | ✅ 已发布 |
-| Linux (x86_64) | [engstudio-1.0.4-Linux-x86_64.tar.gz](https://github.com/wyyy520/ES/releases/download/v1.0.4/engstudio-1.0.4-Linux-x86_64.tar.gz)（免安装） | ✅ 已发布 |
-| Windows (AMD64) | [engstudio-1.0.4-Windows-AMD64.exe](https://github.com/wyyy520/ES/releases/download/v1.0.4/engstudio-1.0.4-Windows-AMD64.exe)（安装程序） | ✅ 已发布 |
-| Windows (AMD64) | [engstudio-1.0.4-Windows-AMD64.zip](https://github.com/wyyy520/ES/releases/download/v1.0.4/engstudio-1.0.4-Windows-AMD64.zip)（免安装） | ✅ 已发布 |
+| Linux (x86_64) | [engstudio-1.0.5-linux-x86_64.deb](https://github.com/wyyy520/ES/releases/download/v1.0.5/engstudio-1.0.5-linux-x86_64.deb) | ✅ 已发布 |
+| Linux (x86_64) | [engstudio-1.0.5-Linux-x86_64.tar.gz](https://github.com/wyyy520/ES/releases/download/v1.0.5/engstudio-1.0.5-Linux-x86_64.tar.gz)（免安装） | ✅ 已发布 |
+| Windows (AMD64) | [engstudio-1.0.5-Windows-AMD64.exe](https://github.com/wyyy520/ES/releases/download/v1.0.5/engstudio-1.0.5-Windows-AMD64.exe)（安装程序） | ✅ 已发布 |
+| Windows (AMD64) | [engstudio-1.0.5-Windows-AMD64.zip](https://github.com/wyyy520/ES/releases/download/v1.0.5/engstudio-1.0.5-Windows-AMD64.zip)（免安装） | ✅ 已发布 |
 | macOS | — | 🚧 计划中 |
 
 ## 校验和
 
-[SHA256SUMS.txt](https://github.com/wyyy520/ES/releases/download/v1.0.4/SHA256SUMS.txt)
+[SHA256SUMS.txt](https://github.com/wyyy520/ES/releases/download/v1.0.5/SHA256SUMS.txt)
 
 ## 安装要求
 

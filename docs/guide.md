@@ -10,7 +10,7 @@
 
 ```bash
 # Linux / Debian / Ubuntu 系
-sudo apt install ./engstudio-1.0.4-linux-x86_64.deb
+sudo apt install ./engstudio-1.0.5-linux-x86_64.deb
 ```
 
 安装完成后，在应用菜单或终端执行 `engstudio` 启动客户端。
@@ -28,7 +28,7 @@ EngStudio 由「**桌面客户端** + **本地后端服务**」两部分组成�
 在软件安装目录直接启动，无需额外操作：
 
 ```bash
-cd ~/.engstudio/server && ENGSTUDIO_DATA_DIR=~/.engstudio/data npm install && node dist/index.js
+cd ~/.engstudio/server && ENGSTUDIO_DATA_DIR=~/.engstudio/data ENGSTUDIO_LOCAL=1 npm install && node dist/index.js
 ```
 
 ### 方案 B：用户目录副本（系统目录不可写时自动选择）
@@ -38,18 +38,19 @@ deb 把后端装到 `/usr/share/engstudio/server`（root 拥有），普通用�
 **首次使用（必须执行，一次性）**——把 Dashboard 复制的命令粘到终端执行，会先复制 + 授权 + 装依赖：
 
 ```bash
-mkdir -p ~/.engstudio && sudo cp -r /usr/share/engstudio/server ~/.engstudio/server && sudo chown -R $USER ~/.engstudio/server && cd ~/.engstudio/server && ENGSTUDIO_DATA_DIR=~/.engstudio/data npm install && node dist/index.js
+mkdir -p ~/.engstudio && sudo cp -r /usr/share/engstudio/server ~/.engstudio/server && sudo chown -R $USER ~/.engstudio/server && cd ~/.engstudio/server && ENGSTUDIO_DATA_DIR=~/.engstudio/data ENGSTUDIO_LOCAL=1 npm install && node dist/index.js
 ```
 
 **之后每次使用**（依赖已装好，更快）：
 
 ```bash
-cd ~/.engstudio/server && ENGSTUDIO_DATA_DIR=~/.engstudio/data node dist/index.js
+cd ~/.engstudio/server && ENGSTUDIO_DATA_DIR=~/.engstudio/data ENGSTUDIO_LOCAL=1 node dist/index.js
 ```
 
 ### 两种方案的共同点
 
 - 所有启动命令都通过 `ENGSTUDIO_DATA_DIR` 指向**同一个数据目录** `~/.engstudio/data`，无论用哪种方式启动，你的对话记录、供应商配置、项目都**互通**，不会出现"换个启动方式数据就消失"。
+- `ENGSTUDIO_LOCAL=1` 代表**一键本地模式**：服务端自动生成临时密钥，免去手工配置 `JWT_SECRET`，新手开箱即可用。
 - `npm install` 只需**第一次**运行（约 1-3 分钟，请等待完成）；之后直接执行 `node dist/index.js` 即可。
 - 看到类似输出即表示后端已就绪：
 

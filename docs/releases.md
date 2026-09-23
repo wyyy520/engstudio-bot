@@ -4,6 +4,7 @@
 
 <div class="version-nav">
 
+- [v1.0.5](#v105) — 一键后端修复、开箱即用
 - [v1.0.4](#v104) — 模板全量原生化（去 Handlebars）
 - [v1.0.3](#v103) — 生成/导出链路修复
 - [v1.0.2](#v102) — 一键后端 + AI 工程
@@ -11,6 +12,31 @@
 - [v1.0.0](#v100) — 首个正式版
 
 </div>
+
+---
+
+## v1.0.5 {#v105}
+
+**发布日期**：2026-09-23 · [GitHub Release](https://github.com/wyyy520/ES/releases/tag/v1.0.5)
+
+> 核心目标：让「一键后端」真正开箱即用 —— 免配置密钥、会话更稳、安装包内置后端。
+
+### 🐛 修复的问题
+
+1. **首次启动不再因缺少 `JWT_SECRET` 报错退出**
+   - Dashboard 的一键后端启动命令自动携带 `ENGSTUDIO_LOCAL=1`，本地一键模式由服务端自动生成临时密钥，新手开箱即可用（原命令不带该开关，会直接 `Invalid environment configuration: JWT_SECRET`）。
+2. **本机会话在同一秒内并发调用会 500**
+   - `/api/auth/local` 在同一秒内被连续调用时，JWT（`iat` 精确到秒）逐字节相同，撞 `sessions.token` 唯一约束 → `UNIQUE constraint failed`。
+   - 修复：签发的 token 内置唯一 `jti`，每次会话互不冲突，健康轮询不再把后端打挂。
+3. **Linux 安装包内置 server bundle**
+   - deb / tar.gz 安装包的 `/usr/share/engstudio/server` 随包分发，配合一键启动命令 `npm install && node dist/index.js` 即可拉起本地后端，无需另行部署服务端。
+
+### 📦 安装包
+
+- Linux：`engstudio-1.0.5-linux-x86_64.deb`、`engstudio-1.0.5-Linux-x86_64.tar.gz`
+- Windows：`engstudio-1.0.5-Windows-AMD64.exe`、`engstudio-1.0.5-Windows-AMD64.zip`
+
+另附：[更新记录页](https://engstudio.bot.cd/releases.html)；[完整代码变更](https://github.com/wyyy520/ES/releases/tag/v1.0.5)。
 
 ---
 
